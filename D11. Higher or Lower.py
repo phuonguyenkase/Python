@@ -4,6 +4,7 @@ import random
 
 continue_game = True
 scores = 0
+highest_score = 0
 
 def format_data(account):
     """Takes the account data and returns the printable format."""
@@ -13,13 +14,16 @@ def format_data(account):
     return f"{account_name}, a {account_descr}, from {account_country}"
 
 def rules(person_a, person_b, answer):
-    global continue_game, scores
+    global continue_game, scores, highest_score
     print(art.logo)
     if (person_a > person_b and answer == 'A') or (person_b > person_a and answer == 'B'):
         scores += 1
         print(f"You're right! Current score: {scores}")
     else:
         print(f"Sorry that's wrong. Final score: {scores}")
+        if scores > highest_score:
+            highest_score = scores
+        print(f"Your highest score is: {highest_score}")
         continue_game = False
 
 print(art.logo)
