@@ -53,7 +53,7 @@ table.add_column("Type", ["Electric", "Water", "Fire"])
 
 print(table)
 
-#From here I had redone the D15 project using OOP:
+#From here I had redone the D12 project using OOP:
 from coffe_maker import CoffeeMaker
 from menu import Menu
 from money_machine import MoneyMachine
@@ -79,4 +79,4 @@ while machine_is_ready:
                 coffe_maker.make_coffee(drink)
                 my_coffee_machine.amount_of_tip()
 
-#Cái đống cực hình làm bữa day 15 đã được làm sẵn rồi giờ ghi code ra thôi
+#Cái đống cực hình làm bữa day 12 đã được làm sẵn rồi giờ ghi code ra thôi
