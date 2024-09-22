@@ -1,35 +1,33 @@
 from turtle import Turtle
 
-FONT = ("Times New Roman", 15, "normal")
-
-class Scoreboard(Turtle):
+class Score(Turtle):
     def __init__(self):
         super().__init__()
-        self.score = 0
-        self.highest_score = 0
         self.color("white")
         self.penup()
-        self.goto(0,380)
         self.hideturtle()
-        self.update_score()
+        self.leftscore = 0
+        self.rightscore = 0
 
     def update_score(self):
         self.clear()
-        self.write(f"Score: {self.score}", align="center", font = FONT)
+        self.goto(-100,200)
+        self.write(self.leftscore, align = "center", font = ("Courier", 80, "normal"))
+        self.goto(100, 200)
+        self.write(self.rightscore, align="center", font=("Courier", 80, "normal"))
 
-    def final_score(self):
-        self.score += 1
+    def right_score(self):
+        self.rightscore += 1
         self.update_score()
-        if self.score > self.highest_score:  # Update the highest score
-            self.highest_score = self.score
 
-    def reset(self):
+    def left_score(self):
+        self.leftscore += 1
+        self.update_score()
+
+    def winner(self, winner):
         self.clear()
-        self.score = 0  # Reset the current score to 0
-        self.update_score()
-
-    def game_over(self):
         self.goto(0, 0)
-        self.write(f"Your highest score is {self.highest_score}. Thank you for playing", align="center", font = FONT)
-
-#cách để hiện highest score bên góc trái
+        if winner == "left":
+            self.write("The left side wins!", align="center", font=("Courier", 40, "normal"))
+        else:
+            self.write("The right side wins!", align="center", font=("Courier", 40, "normal"))
